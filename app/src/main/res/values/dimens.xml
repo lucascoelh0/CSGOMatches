@@ -46,5 +46,6 @@
     <dimen name="font_size_xl">24sp</dimen>
     <dimen name="font_size_xxl">32sp</dimen>
     <dimen name="font_size_xxxl">48sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 </resources>

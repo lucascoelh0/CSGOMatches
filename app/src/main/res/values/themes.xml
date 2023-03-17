@@ -1,8 +1,8 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.CSGOMatches" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -13,4 +13,28 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- Set the splash screen background, animated icon, and animation duration. -->
+        <item name="windowSplashScreenBackground">@color/primary</item>
+
+        <!-- Use windowSplashScreenAnimatedIcon to add either a drawable or an
+             animated drawable. One of these is required. -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/fuze_icon</item>
+        <!-- Required for animated icons -->
+        <item name="windowSplashScreenAnimationDuration">2000</item>
+
+        <!-- Set the theme of the Activity that directly follows your splash screen. -->
+        <!-- Required -->
+        <item name="postSplashScreenTheme">@style/Theme.CSGOMatches</item>
+    </style>
+
+    <style name="Theme.CSGOMatches.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.CSGOMatches.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.CSGOMatches.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
