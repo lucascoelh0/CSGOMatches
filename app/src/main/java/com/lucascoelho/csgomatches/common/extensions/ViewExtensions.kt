@@ -1,4 +1,4 @@
-package com.lucascoelho.baseproject.common.extensions
+package com.lucascoelho.csgomatches.common.extensions
 
 import android.view.View
 

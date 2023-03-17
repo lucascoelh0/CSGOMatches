@@ -1,7 +1,7 @@
-package com.lucascoelho.baseproject.startup.manager
+package com.lucascoelho.csgomatches.startup.manager
 
 import android.content.Context
-import com.lucascoelho.baseproject.common.di.getKoinModules
+import com.lucascoelho.csgomatches.common.di.getKoinModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
