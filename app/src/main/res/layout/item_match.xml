@@ -22,7 +22,6 @@
             android:textColor="@color/white"
             android:textSize="@dimen/font_size_xs"
             android:textStyle="bold"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:myMatchTimeTextViewIsLive="true"
@@ -31,14 +30,15 @@
 
         <ImageView
             android:id="@+id/imageView_first_team"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/spacing_80"
+            android:layout_height="@dimen/spacing_80"
             android:layout_marginTop="@dimen/spacing_16"
+            android:scaleType="fitXY"
+            android:src="@drawable/round_bg"
             app:layout_constraintEnd_toStartOf="@id/textView_vs"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/fuze_icon" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_match_time" />
 
         <TextView
             android:id="@+id/textView_first_team_name"
@@ -57,6 +57,8 @@
             android:id="@+id/textView_vs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_24"
+            android:layout_marginEnd="@dimen/spacing_24"
             android:text="@string/vs"
             android:textColor="@color/label_01"
             app:layout_constraintBottom_toBottomOf="@id/textView_first_team_name"
@@ -66,13 +68,14 @@
 
         <ImageView
             android:id="@+id/imageView_second_team"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/spacing_80"
+            android:layout_height="@dimen/spacing_80"
             android:layout_marginTop="@dimen/spacing_16"
+            android:scaleType="fitXY"
+            android:src="@drawable/round_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/textView_vs"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/fuze_icon" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_match_time" />
 
         <TextView
             android:id="@+id/textView_second_team_name"
@@ -91,26 +94,30 @@
             android:id="@+id/view_separator"
             android:layout_width="match_parent"
             android:layout_height="@dimen/spacing_1"
+            android:layout_marginBottom="@dimen/spacing_16"
             android:background="@color/color_tertiary"
             app:layout_constraintBottom_toTopOf="@id/imageView_league" />
 
         <ImageView
             android:id="@+id/imageView_league"
-            android:layout_width="@dimen/spacing_48"
-            android:layout_height="@dimen/spacing_48"
+            android:layout_width="@dimen/spacing_24"
+            android:layout_height="@dimen/spacing_24"
             android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginBottom="@dimen/spacing_16"
+            android:scaleType="fitXY"
+            android:src="@drawable/round_bg"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:src="@drawable/fuze_icon" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView_leagueName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/font_size_xs"
             android:layout_marginStart="@dimen/spacing_8"
             android:textColor="@color/white"
+            android:textSize="@dimen/font_size_xs"
             app:layout_constraintBottom_toBottomOf="@id/imageView_league"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_league"
             app:layout_constraintTop_toTopOf="@id/imageView_league"
             tools:text="League + serie" />

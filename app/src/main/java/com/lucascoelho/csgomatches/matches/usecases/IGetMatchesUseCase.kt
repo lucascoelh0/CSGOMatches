@@ -1,7 +1,7 @@
 package com.lucascoelho.csgomatches.matches.usecases
 
-import com.lucascoelho.csgomatches.datasource.matches.entities.Match
+import com.lucascoelho.csgomatches.datasource.matches.entities.model.MatchModel
 
 interface IGetMatchesUseCase {
-    suspend fun invoke(): List<Match>
+    suspend fun invoke(): List<MatchModel>
 }

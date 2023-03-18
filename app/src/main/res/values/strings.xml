@@ -3,6 +3,8 @@
     <string name="title_activity_main">GO Matches</string>
     <string name="now">agora</string>
     <string name="vs">vs</string>
+    <string name="tbd">TBD</string>
+    <string name="league_serie">%s %s</string>
     <!-- Strings used for fragments for navigation -->
     <string name="match_list_fragment_label">Match List Fragment</string>
     <string name="matches">Partidas</string>

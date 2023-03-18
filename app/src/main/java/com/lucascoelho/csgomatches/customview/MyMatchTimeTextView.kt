@@ -19,6 +19,7 @@ class MyMatchTimeTextView(context: Context, private val attrs: AttributeSet?) : 
         val currentState = super.onCreateDrawableState(extraSpace + INCREASE_STATE_SIZE)
         if (isLive) {
             val newState = intArrayOf(R.attr.myMatchTimeTextViewIsLive)
+            text = context.getString(R.string.now)
             mergeDrawableStates(currentState, newState)
         }
         return currentState
