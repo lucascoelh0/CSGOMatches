@@ -1,7 +1,8 @@
 package com.lucascoelho.csgomatches.datasource.common.di
 
 object DataSourceDI {
-    val module = RemoteDI.module +
+    val module = RepositoryDI.module +
+            RemoteDI.module +
             RetrofitDI.module +
             OkHttpClientDI.module
 }

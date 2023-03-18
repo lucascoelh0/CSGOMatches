@@ -1,7 +1,9 @@
 package com.lucascoelho.csgomatches.datasource.common.di
 
 import com.google.gson.GsonBuilder
+import com.lucascoelho.csgomatches.datasource.common.provider.IOkHttpClientBuilderProvider
 import com.lucascoelho.csgomatches.datasource.common.provider.IOkHttpClientProvider
+import com.lucascoelho.csgomatches.datasource.common.provider.OkHttpClientBuilderProvider
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
 import org.koin.dsl.module
@@ -20,6 +22,9 @@ object RetrofitDI {
             HttpLoggingInterceptor().apply {
                 level = httpLoggingInterceptorLevel
             }
+        }
+        factory<IOkHttpClientBuilderProvider> {
+            OkHttpClientBuilderProvider()
         }
         factory {
             val okHttpClientProvider = get<IOkHttpClientProvider>()

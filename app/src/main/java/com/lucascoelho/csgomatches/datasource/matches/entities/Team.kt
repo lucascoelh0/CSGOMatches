@@ -1,4 +1,4 @@
-package com.lucascoelho.csgomatches.datasource.matches.dto
+package com.lucascoelho.csgomatches.datasource.matches.entities
 
 data class Team(
     val id: Int,
