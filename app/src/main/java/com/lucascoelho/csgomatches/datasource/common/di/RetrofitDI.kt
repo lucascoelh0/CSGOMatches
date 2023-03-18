@@ -1,10 +1,11 @@
-package com.lucascoelho.csgomatches.remote.common.di
+package com.lucascoelho.csgomatches.datasource.common.di
 
 import com.google.gson.GsonBuilder
-import com.lucascoelho.csgomatches.remote.common.provider.IOkHttpClientProvider
+import com.lucascoelho.csgomatches.datasource.common.provider.IOkHttpClientProvider
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
 import org.koin.dsl.module
+import retrofit2.Retrofit
 import retrofit2.Retrofit.Builder
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -33,11 +34,10 @@ object RetrofitDI {
                     )
                 )
         }
-//         Base URL
-//        factory<Retrofit> {
-//            get<Builder>()
-//                    .baseUrl("https://url.com")
-//                    .build()
-//        }
+        factory<Retrofit> {
+            get<Builder>()
+                .baseUrl("https://api.pandascore.co")
+                .build()
+        }
     }
 }

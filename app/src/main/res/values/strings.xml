@@ -5,4 +5,5 @@
     <string name="vs">vs</string>
     <!-- Strings used for fragments for navigation -->
     <string name="match_list_fragment_label">Match List Fragment</string>
+    <string name="matches">Partidas</string>
 </resources>

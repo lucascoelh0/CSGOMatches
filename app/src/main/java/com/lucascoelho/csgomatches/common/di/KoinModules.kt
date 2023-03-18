@@ -1,6 +1,6 @@
 package com.lucascoelho.csgomatches.common.di
 
-import com.lucascoelho.csgomatches.remote.common.di.RemoteDI
+import com.lucascoelho.csgomatches.datasource.common.di.DataSourceDI
 
 // App scope
-fun getKoinModules() = RemoteDI.module
+fun getKoinModules() = DataSourceDI.module

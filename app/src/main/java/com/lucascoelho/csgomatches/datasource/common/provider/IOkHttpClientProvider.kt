@@ -1,4 +1,4 @@
-package com.lucascoelho.csgomatches.remote.common.provider
+package com.lucascoelho.csgomatches.datasource.common.provider
 
 import okhttp3.OkHttpClient
 
