@@ -11,6 +11,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.lucascoelho.csgomatches.R
+import com.lucascoelho.csgomatches.common.extensions.setGone
+import com.lucascoelho.csgomatches.common.extensions.setVisible
 import com.lucascoelho.csgomatches.common.utils.TimeUtils
 import com.lucascoelho.csgomatches.databinding.FragmentMatchBinding
 import com.lucascoelho.csgomatches.datasource.matches.entities.model.MatchModel
@@ -54,9 +56,21 @@ class MatchFragment : Fragment() {
     private fun setupObservers() {
         viewModel.teamOne.observe(viewLifecycleOwner) {
             teamOneAdapter.update(it)
+            if (args.match.opponents.size == 1) {
+                binding.apply {
+                    progressBarLoading.setGone()
+                    constraintLayoutMatchDetailsContainer.setVisible()
+                }
+            }
         }
         viewModel.teamTwo.observe(viewLifecycleOwner) {
             teamTwoAdapter.update(it)
+            if (args.match.opponents.size == 2) {
+                binding.apply {
+                    progressBarLoading.setGone()
+                    constraintLayoutMatchDetailsContainer.setVisible()
+                }
+            }
         }
     }
 

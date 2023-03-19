@@ -64,6 +64,7 @@
         android:id="@+id/imageView_player_avatar"
         android:layout_width="0dp"
         android:layout_height="@dimen/spacing_64"
+        android:scaleType="fitXY"
         android:src="@drawable/background_avatar"
         app:layout_constraintEnd_toStartOf="@id/guideline_outer"
         app:layout_constraintStart_toEndOf="@id/guideline_outer2"

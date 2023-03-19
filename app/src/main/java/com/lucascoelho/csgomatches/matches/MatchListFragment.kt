@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.lucascoelho.csgomatches.common.extensions.setGone
+import com.lucascoelho.csgomatches.common.extensions.setVisible
 import com.lucascoelho.csgomatches.databinding.FragmentMatchListBinding
 import com.lucascoelho.csgomatches.datasource.matches.entities.model.MatchModel
 import com.lucascoelho.csgomatches.matches.view.MatchesAdapter
@@ -63,6 +65,10 @@ class MatchListFragment : Fragment() {
     private fun setupObservers() {
         viewModel.matches.observe(viewLifecycleOwner) {
             matchesAdapter.update(it)
+            binding.apply {
+                progressBarLoading.setGone()
+                constraintLayoutMatchDetailsContainer.setVisible()
+            }
         }
     }
 }
