@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.lucascoelho.csgomatches.R
+import com.lucascoelho.csgomatches.common.utils.TimeUtils
 import com.lucascoelho.csgomatches.databinding.FragmentMatchBinding
 import com.lucascoelho.csgomatches.datasource.matches.entities.model.MatchModel
 import com.lucascoelho.csgomatches.matches.view.TeamOneAdapter
@@ -88,6 +89,8 @@ class MatchFragment : Fragment() {
             match.league.name,
             if (match.serie.name.isNullOrEmpty()) "" else "| ${match.serie.name}"
         )
+        binding.textViewMatchTime.text =
+            TimeUtils.formatDateStringToLocalDateString(match.scheduledAt)
         when (match.opponents.size) {
             1 -> {
                 binding.teamInfoContainer.apply {

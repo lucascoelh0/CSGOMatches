@@ -47,7 +47,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_24"
-        android:text="@string/matches"
         android:textColor="@color/white"
         android:textSize="@dimen/font_size_xm"
         android:textStyle="bold"
