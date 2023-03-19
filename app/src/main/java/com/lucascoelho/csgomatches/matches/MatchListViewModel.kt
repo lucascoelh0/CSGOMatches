@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.lucascoelho.csgomatches.datasource.matches.entities.MatchStatus
 import com.lucascoelho.csgomatches.datasource.matches.entities.model.MatchModel
 import com.lucascoelho.csgomatches.matches.usecases.IGetMatchesUseCase
 import kotlinx.coroutines.CoroutineDispatcher
@@ -23,18 +22,10 @@ class MatchListViewModel(
     val matches: LiveData<List<MatchModel>>
         get() = _matches
 
-    fun updateMatches() {
+    fun fetchMatches() {
         viewModelScope.launch {
             withContext(ioDispatcher) {
-                val matchesList = mutableListOf<MatchModel>()
-                matchesList.addAll(getMatchesUseCase.invoke())
-                matchesList.removeIf {
-                    it.status == MatchStatus.NO_STATUS ||
-                            it.status == MatchStatus.CANCELED ||
-                            it.status == MatchStatus.UNKNOWN
-                }
-                matchesList.sortWith(compareBy({ it.status }, { it.scheduledAt }))
-                _matches.postValue(matchesList)
+                _matches.postValue(getMatchesUseCase.invoke())
             }
         }
     }

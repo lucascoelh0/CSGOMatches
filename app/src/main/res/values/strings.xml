@@ -7,7 +7,6 @@
     <string name="league_serie">%s %s</string>
     <!-- Strings used for fragments for navigation -->
     <string name="match_list_fragment_label">Match List Fragment</string>
+    <string name="match_fragment_label">Match Fragment</string>
     <string name="matches">Partidas</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

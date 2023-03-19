@@ -11,7 +11,9 @@ import com.lucascoelho.csgomatches.databinding.ItemMatchBinding
 import com.lucascoelho.csgomatches.datasource.matches.entities.MatchStatus
 import com.lucascoelho.csgomatches.datasource.matches.entities.model.MatchModel
 
-class MatchesAdapter : RecyclerView.Adapter<MatchesAdapter.MatchesViewHolder>() {
+class MatchesAdapter(
+    private val onItemClicked: (MatchModel) -> Unit
+) : RecyclerView.Adapter<MatchesAdapter.MatchesViewHolder>() {
 
     private var matchesList = mutableListOf<MatchModel>()
 
@@ -25,16 +27,18 @@ class MatchesAdapter : RecyclerView.Adapter<MatchesAdapter.MatchesViewHolder>() 
     }
 
     override fun onBindViewHolder(holder: MatchesViewHolder, position: Int) {
-        holder.onBind(matchesList[position])
+        holder.onBind(matchesList[position], onItemClicked)
     }
 
     override fun getItemCount(): Int {
         return matchesList.size
     }
 
-    inner class MatchesViewHolder(private val binding: ItemMatchBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MatchesViewHolder(
+        private val binding: ItemMatchBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(match: MatchModel) {
+        fun onBind(match: MatchModel, onItemClicked: (MatchModel) -> Unit) {
             if (match.status == MatchStatus.RUNNING) {
                 binding.textViewMatchTime.setLive(true)
             } else {
@@ -43,7 +47,11 @@ class MatchesAdapter : RecyclerView.Adapter<MatchesAdapter.MatchesViewHolder>() 
             }
             setupOpponents(match)
             setupLeague(match)
-            binding.textViewMatchTime.text = TimeUtils.formatDateStringToLocalDateString(match.scheduledAt)
+            binding.textViewMatchTime.text =
+                TimeUtils.formatDateStringToLocalDateString(match.scheduledAt)
+            binding.root.setOnClickListener {
+                onItemClicked(match)
+            }
         }
 
         private fun setupOpponents(match: MatchModel) {

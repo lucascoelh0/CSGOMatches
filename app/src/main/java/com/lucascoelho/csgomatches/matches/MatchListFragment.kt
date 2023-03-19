@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucascoelho.csgomatches.databinding.FragmentMatchListBinding
+import com.lucascoelho.csgomatches.datasource.matches.entities.model.MatchModel
 import com.lucascoelho.csgomatches.matches.view.MatchesAdapter
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -17,6 +19,17 @@ class MatchListFragment : Fragment() {
 
     private var _binding: FragmentMatchListBinding? = null
     private val binding get() = _binding!!
+
+    private val onMatchClicked: (MatchModel) -> Unit = { match ->
+        if (match.opponents.isNotEmpty()) {
+            val action = MatchListFragmentDirections.actionMatchListFragmentToMatchFragment(match)
+            try {
+                findNavController().navigate(action)
+            } catch (ignored: Exception) {
+                // TODO: Tratar exceção
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +44,7 @@ class MatchListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
         setupRecyclerView()
-        viewModel.updateMatches()
+        viewModel.fetchMatches()
     }
 
     override fun onDestroyView() {
@@ -40,7 +53,7 @@ class MatchListFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        matchesAdapter = MatchesAdapter()
+        matchesAdapter = MatchesAdapter(onMatchClicked)
         binding.recyclerViewMatches.apply {
             layoutManager = LinearLayoutManager(this.context)
             adapter = matchesAdapter

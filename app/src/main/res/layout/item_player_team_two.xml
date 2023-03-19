@@ -11,15 +11,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_20"
         android:background="@drawable/background_team_two"
-        app:layout_constraintBottom_toBottomOf="@id/cardView_player_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_player_avatar"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView_nickname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_20"
             android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_20"
             android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@id/textView_nickname"
             app:layout_constraintStart_toEndOf="@id/guideline_inner"
@@ -60,14 +60,13 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.06" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_player_avatar"
+    <ImageView
+        android:id="@+id/imageView_player_avatar"
         android:layout_width="0dp"
         android:layout_height="@dimen/spacing_64"
-        android:backgroundTint="@color/color_tertiary"
-        app:cardCornerRadius="@dimen/spacing_12"
-        app:layout_constraintStart_toEndOf="@id/guideline_outer2"
+        android:src="@drawable/background_avatar"
         app:layout_constraintEnd_toStartOf="@id/guideline_outer"
+        app:layout_constraintStart_toEndOf="@id/guideline_outer2"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_20"
         android:background="@drawable/background_team_one"
-        app:layout_constraintBottom_toBottomOf="@id/cardView_player_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_player_avatar"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -64,12 +64,11 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.94" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_player_avatar"
+    <ImageView
+        android:id="@+id/imageView_player_avatar"
         android:layout_width="0dp"
         android:layout_height="@dimen/spacing_64"
-        android:backgroundTint="@color/color_tertiary"
-        app:cardCornerRadius="@dimen/spacing_12"
+        android:src="@drawable/background_avatar"
         app:layout_constraintEnd_toEndOf="@id/guideline_outer2"
         app:layout_constraintStart_toEndOf="@id/guideline_outer"
         app:layout_constraintTop_toTopOf="parent" />

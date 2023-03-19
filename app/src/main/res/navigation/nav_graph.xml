@@ -9,5 +9,22 @@
         android:id="@+id/MatchListFragment"
         android:name="com.lucascoelho.csgomatches.matches.MatchListFragment"
         android:label="@string/match_list_fragment_label"
-        tools:layout="@layout/fragment_match_list" />
+        tools:layout="@layout/fragment_match_list">
+        <action
+            android:id="@+id/action_MatchListFragment_to_MatchFragment"
+            app:destination="@id/MatchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/MatchFragment"
+        android:name="com.lucascoelho.csgomatches.matches.MatchFragment"
+        android:label="@string/match_fragment_label"
+        tools:layout="@layout/fragment_match">
+        <action
+            android:id="@+id/action_MatchFragment_to_MatchListFragment"
+            app:destination="@id/MatchListFragment" />
+        <argument
+            android:name="match"
+            app:argType="com.lucascoelho.csgomatches.datasource.matches.entities.model.MatchModel" />
+    </fragment>
 </navigation>
