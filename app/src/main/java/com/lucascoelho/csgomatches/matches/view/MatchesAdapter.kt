@@ -49,56 +49,56 @@ class MatchesAdapter : RecyclerView.Adapter<MatchesAdapter.MatchesViewHolder>() 
         private fun setupOpponents(match: MatchModel) {
             when (match.opponents.size) {
                 0 -> {
-                    binding.apply {
+                    binding.teamInfoContainer.apply {
                         textViewFirstTeamName.text = binding.root.context.getString(R.string.tbd)
                         textViewSecondTeamName.text = binding.root.context.getString(R.string.tbd)
                         imageViewFirstTeam.setImageDrawable(
                             AppCompatResources.getDrawable(
                                 binding.root.context,
-                                R.drawable.round_bg
+                                R.drawable.background_round
                             )
                         )
                         imageViewSecondTeam.setImageDrawable(
                             AppCompatResources.getDrawable(
                                 binding.root.context,
-                                R.drawable.round_bg
+                                R.drawable.background_round
                             )
                         )
                     }
                 }
                 1 -> {
-                    binding.apply {
+                    binding.teamInfoContainer.apply {
                         match.opponents[0].opponent.run {
                             textViewFirstTeamName.text = this.name
                             Glide.with(binding.root.context)
                                 .load(this.image_url)
-                                .placeholder(R.drawable.round_bg)
-                                .into(binding.imageViewFirstTeam)
+                                .placeholder(R.drawable.background_round)
+                                .into(imageViewFirstTeam)
                         }
                         textViewSecondTeamName.text = binding.root.context.getString(R.string.tbd)
                         imageViewSecondTeam.setImageDrawable(
                             AppCompatResources.getDrawable(
                                 binding.root.context,
-                                R.drawable.round_bg
+                                R.drawable.background_round
                             )
                         )
                     }
                 }
                 else -> {
-                    binding.apply {
+                    binding.teamInfoContainer.apply {
                         match.opponents[0].opponent.run {
                             textViewFirstTeamName.text = this.name
                             Glide.with(binding.root.context)
                                 .load(this.image_url)
-                                .placeholder(R.drawable.round_bg)
-                                .into(binding.imageViewFirstTeam)
+                                .placeholder(R.drawable.background_round)
+                                .into(imageViewFirstTeam)
                         }
                         match.opponents[1].opponent.run {
                             textViewSecondTeamName.text = this.name
                             Glide.with(binding.root.context)
                                 .load(this.image_url)
-                                .placeholder(R.drawable.round_bg)
-                                .into(binding.imageViewSecondTeam)
+                                .placeholder(R.drawable.background_round)
+                                .into(imageViewSecondTeam)
                         }
                     }
                 }
@@ -114,7 +114,7 @@ class MatchesAdapter : RecyclerView.Adapter<MatchesAdapter.MatchesViewHolder>() 
             match.league.image_url.run {
                 Glide.with(binding.root.context)
                     .load(this)
-                    .placeholder(R.drawable.round_bg)
+                    .placeholder(R.drawable.background_round)
                     .into(binding.imageViewLeague)
             }
         }
