@@ -7,3 +7,7 @@ Foi utilizado o Model-View-ViewModel (MVVM), com apenas uma Activity, e o padrã
 Foram utilizadas as seguintes bibliotecas do Android Jetpack: Navigation Component e ViewModel
 
 Foi utilizado Koin para injeção de dependência.
+
+Para rodar o projeto, dentro do local.properties inserir a seguinte linha:
+
+apiKey="seu_token_aqui"
