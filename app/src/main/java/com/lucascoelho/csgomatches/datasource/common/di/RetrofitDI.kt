@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder
 import com.lucascoelho.csgomatches.datasource.common.provider.IOkHttpClientBuilderProvider
 import com.lucascoelho.csgomatches.datasource.common.provider.IOkHttpClientProvider
 import com.lucascoelho.csgomatches.datasource.common.provider.OkHttpClientBuilderProvider
+import com.lucascoelho.csgomatches.datasource.common.remote.TokenQueryInterceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
 import org.koin.dsl.module
@@ -13,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitDI {
     val module = module {
+        single { TokenQueryInterceptor() }
         factory {
             val httpLoggingInterceptorLevel = if (BuildConfig.DEBUG)
                 HttpLoggingInterceptor.Level.BASIC
