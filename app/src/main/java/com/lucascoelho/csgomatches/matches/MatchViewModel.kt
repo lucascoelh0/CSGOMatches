@@ -30,9 +30,9 @@ class MatchViewModel(
     fun fetchTeamDetails(opponents: List<Opponent>) {
         viewModelScope.launch {
             withContext(ioDispatcher) {
-                _teamOne.postValue(getTeamUseCase.getTeamDetails(opponents[0].opponent.id))
+                _teamOne.postValue(getTeamUseCase.invoke(opponents[0].opponent.id))
                 if (opponents.size == 2) {
-                    _teamTwo.postValue(getTeamUseCase.getTeamDetails(opponents[1].opponent.id))
+                    _teamTwo.postValue(getTeamUseCase.invoke(opponents[1].opponent.id))
                 }
             }
         }

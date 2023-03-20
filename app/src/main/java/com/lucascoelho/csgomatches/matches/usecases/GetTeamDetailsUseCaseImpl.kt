@@ -5,7 +5,7 @@ import com.lucascoelho.csgomatches.datasource.matches.repository.ITeamRepository
 
 class GetTeamDetailsUseCaseImpl(private val teamRepository: ITeamRepository) :
     IGetTeamDetailsUseCase {
-    override suspend fun getTeamDetails(id: Int): List<Player> {
+    override suspend fun invoke(id: Int): List<Player> {
         val players = teamRepository.getTeamDetails(id)
         if (players.isNotEmpty()) {
             return players[0].players
