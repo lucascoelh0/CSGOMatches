@@ -45,6 +45,7 @@ class MatchListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
+        setupListeners()
         setupRecyclerView()
         viewModel.fetchMatches()
     }
@@ -54,21 +55,28 @@ class MatchListFragment : Fragment() {
         _binding = null
     }
 
-    private fun setupRecyclerView() {
-        matchesAdapter = MatchesAdapter(onMatchClicked)
-        binding.recyclerViewMatches.apply {
-            layoutManager = LinearLayoutManager(this.context)
-            adapter = matchesAdapter
-        }
-    }
-
     private fun setupObservers() {
         viewModel.matches.observe(viewLifecycleOwner) {
             matchesAdapter.update(it)
             binding.apply {
                 progressBarLoading.setGone()
-                constraintLayoutMatchDetailsContainer.setVisible()
+                swipeRefreshLayoutMatchDetailsContainer.setVisible()
+                swipeRefreshLayoutMatchDetailsContainer.isRefreshing = false
             }
+        }
+    }
+
+    private fun setupListeners() {
+        binding.swipeRefreshLayoutMatchDetailsContainer.setOnRefreshListener {
+            viewModel.fetchMatches()
+        }
+    }
+
+    private fun setupRecyclerView() {
+        matchesAdapter = MatchesAdapter(onMatchClicked)
+        binding.recyclerViewMatches.apply {
+            layoutManager = LinearLayoutManager(this.context)
+            adapter = matchesAdapter
         }
     }
 }
